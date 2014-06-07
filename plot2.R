@@ -17,5 +17,5 @@ at <- hour(data$DateTime) == 0 & minute(data$DateTime) == 0
 ## Adds the last value
 at[NROW(at)] <- TRUE
 # We add 60 secs to time, so that last label will be Saturday
-axis(side=1, at= as.numeric(data$DateTime[at]), labels=format(data$DateTime[at] + 60, "%a"), line=NA)
+axis(side=1, at= as.numeric(data$DateTime[at]), labels=format(data$DateTime[at] + 60, "%a"), lwd=0, lwd.ticks=1)
 dev.off()

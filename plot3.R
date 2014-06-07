@@ -13,7 +13,7 @@ smcolors <- c("black", "red", "blue")
 
 with(data, 
   {
-    plot(Sub_metering_1 ~ as.numeric(DateTime), type="n", xaxt="n", xlab="", ylab="Enery sub metering")
+    plot(Sub_metering_1 ~ as.numeric(DateTime), type="n", xaxt="n", xlab="", ylab="Energy sub metering")
     # generate the formula's from the varnames vector, and use to draw in defined color.
     for (i in 1:3) {
       f <- paste(varnames[i], " ~ ", "as.numeric(DateTime)")
@@ -31,5 +31,5 @@ at <- hour(data$DateTime) == 0 & minute(data$DateTime) == 0
 ## Adds the last value
 at[NROW(at)] <- TRUE
 # We add 60 secs to time, so that last label will be Saturday
-axis(side=1, at= as.numeric(data$DateTime[at]), labels=format(data$DateTime[at] + 60, "%a"), line=NA)
+axis(side=1, at= as.numeric(data$DateTime[at]), labels=format(data$DateTime[at] + 60, "%a"),  lwd=0, lwd.ticks=1)
 dev.off()
